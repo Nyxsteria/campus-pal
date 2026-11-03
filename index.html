@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fc">
+  <meta name="description" content="Campus Pal helps you feel at home at college. Meet people, keep up with campus life and see what's for dinner.">
+  <title>Campus Pal — your campus, closer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Campus Pal home"><span class="brand-mark">p</span><span>campus<span class="brand-light">pal</span></span></a>
+      <div class="campus-switcher"><span class="campus-icon">✳</span><span><small>YOUR CAMPUS</small><strong>Northbridge College</strong></span><span class="chevron">⌄</span></div>
+      <nav class="primary-nav">
+        <p class="nav-label">YOUR SPACE</p>
+        <a class="nav-item active" href="#home" data-nav="home"><span class="nav-icon">⌂</span>Home</a>
+        <a class="nav-item" href="#discover" data-nav="discover"><span class="nav-icon">⌕</span>Discover <span class="nav-badge">3</span></a>
+        <a class="nav-item" href="#messages" data-nav="messages"><span class="nav-icon">▱</span>Messages<span class="unread-dot"></span></a>
+        <a class="nav-item" href="#saved" data-nav="saved"><span class="nav-icon">♡</span>Saved</a>
+        <p class="nav-label nav-label-spaced">CAMPUS LIFE</p>
+        <a class="nav-item" href="#updates" data-nav="updates"><span class="nav-icon">✳</span>College updates</a>
+        <a class="nav-item" href="#food" data-nav="food"><span class="nav-icon">♨</span>What's for dinner?</a>
+        <a class="nav-item" href="#people" data-nav="people"><span class="nav-icon">♧</span>People</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="safety-card"><span class="safety-icon">♡</span><strong>Your space, your rules</strong><p>Your location is never shared. You choose what to post and who sees it.</p><button class="text-button" data-action="privacy">Your privacy <span>→</span></button></div>
+        <button class="profile-menu" data-action="profile"><span class="avatar avatar-me">JM</span><span class="profile-info"><strong>Jamie Morgan</strong><small>Year 12 · they/them</small></span><span class="more">···</span></button>
+      </div>
+    </aside>
+
+    <main id="main" class="main-content">
+      <header class="topbar"><div><p class="eyebrow" id="today-label">MONDAY, 3 NOVEMBER</p><h1>Your campus, <span>closer.</span></h1></div><div class="top-actions"><button class="icon-button notification-button" aria-label="Notifications" data-action="notifications">♧<i></i></button><button class="compose-button" data-action="compose"><span>＋</span> Share something</button></div></header>
+
+      <section class="stories-section" aria-labelledby="stories-title">
+        <div class="section-heading"><div><p class="eyebrow">A LITTLE CAMPUS MOMENT</p><h2 id="stories-title">Around campus <span class="live-dot"></span></h2></div><button class="subtle-link" data-action="all-stories">See all <span>→</span></button></div>
+        <div class="stories-row" id="stories-row">
+          <button class="story story-add" data-action="add-story"><span class="story-ring add-ring"><span class="story-photo add-photo">＋</span></span><span class="story-name">Your story</span></button>
+          <button class="story" data-story="Aisha"><span class="story-ring"><span class="story-photo photo-aisha">A</span></span><span class="story-name">Aisha</span></button>
+          <button class="story" data-story="Leo"><span class="story-ring"><span class="story-photo photo-leo">L</span></span><span class="story-name">Leo</span></button>
+          <button class="story" data-story="Priya"><span class="story-ring"><span class="story-photo photo-priya">P</span></span><span class="story-name">Priya</span></button>
+          <button class="story" data-story="Sam"><span class="story-ring"><span class="story-photo photo-sam">S</span></span><span class="story-name">Sam</span></button>
+          <button class="story" data-story="Maya"><span class="story-ring"><span class="story-photo photo-maya">M</span></span><span class="story-name">Maya</span></button>
+        </div>
+      </section>
+
+      <section class="composer-card" aria-label="Create a post"><span class="avatar avatar-me">JM</span><button class="composer-prompt" data-action="compose">What's happening on campus, Jamie?</button><span class="composer-divider"></span><button class="composer-tool" data-action="photo" aria-label="Add a photo">▧ <span>Photo</span></button><button class="composer-tool feeling-tool" data-action="feeling" aria-label="Share a moment">☻ <span>Feeling</span></button></section>
+
+      <section class="feed-section" id="feed" aria-labelledby="feed-title">
+        <div class="section-heading feed-heading"><div><p class="eyebrow">THE GOOD STUFF</p><h2 id="feed-title">Your campus feed</h2></div><button class="feed-sort" data-action="sort">For you <span>⌄</span></button></div>
+        <div class="feed-tabs" role="tablist" aria-label="Filter feed">
+          <button class="feed-tab selected" role="tab" aria-selected="true" data-filter="all">For you</button><button class="feed-tab" role="tab" aria-selected="false" data-filter="friends">Friends</button><button class="feed-tab" role="tab" aria-selected="false" data-filter="clubs">Clubs &amp; societies</button><button class="feed-tab" role="tab" aria-selected="false" data-filter="college">College</button>
+        </div>
+        <div id="post-list" class="post-list" aria-live="polite"></div>
+        <div class="empty-state hidden" id="empty-state"><span>✳</span><h3>Nothing here just yet</h3><p>Try another feed or share the first campus moment.</p></div>
+        <button class="load-more" data-action="load-more">You're all caught up <span>✳</span></button>
+      </section>
+    </main>
+
+    <aside class="right-rail" aria-label="Campus highlights">
+      <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search people, clubs..." aria-label="Search people, clubs and posts"><kbd>⌘ K</kbd></label>
+      <section class="rail-card dinner-card" id="food">
+        <div class="card-topline"><span class="eyebrow">ON THE MENU</span><button class="menu-day" id="menu-day" data-day="today">Today <span>⌄</span></button></div>
+        <h2>Good food, <em>good mood.</em></h2>
+        <p class="menu-location">♨ &nbsp; The Commons · serving 5–7 pm</p>
+        <div class="menu-image" role="img" aria-label="Illustration of a colourful dinner bowl"><span class="menu-sparkle sparkle-one">✦</span><span class="menu-bowl"><span class="bowl-food">🥗</span></span><span class="menu-sparkle sparkle-two">✳</span><span class="menu-leaf leaf-one">〰</span></div>
+        <div class="menu-details"><span class="menu-tag">STUDENT FAVOURITE</span><h3 id="dinner-name">Roasted veggie &amp; halloumi bowl</h3><p id="dinner-description">Herby grains, roasted squash, greens &amp; lemon dressing.</p></div>
+        <div class="menu-footer"><span>Veggie <b>·</b> Vegan option available</span><button class="round-arrow" aria-label="See menu details" data-action="menu-details">→</button></div>
+      </section>
+      <section class="rail-card update-card" id="updates"><div class="rail-title"><div><span class="eyebrow">IN THE KNOW</span><h2>Campus notices</h2></div><button class="dots-button" aria-label="More notice options" data-action="notice-options">···</button></div>
+        <article class="notice"><span class="notice-icon notice-purple">✳</span><div><span class="notice-meta">STUDENT UNION <i>·</i> 2h</span><h3>Freshers' winter social ❄️</h3><p>Tickets are live for Friday. Bring a mate, make a mate.</p><button class="notice-link" data-action="tickets">Have a look <span>→</span></button></div></article>
+        <article class="notice"><span class="notice-icon notice-yellow">☼</span><div><span class="notice-meta">LIBRARY <i>·</i> 4h</span><h3>Quiet study space added</h3><p>Extra desks in the East Wing during exam prep.</p><button class="notice-link" data-action="library">Find the space <span>→</span></button></div></article>
+        <button class="all-updates" data-action="all-updates">All college updates <span>→</span></button>
+      </section>
+      <section class="rail-card people-card" id="people"><div class="rail-title"><div><span class="eyebrow">YOUR KIND OF PEOPLE</span><h2>New around here</h2></div><button class="subtle-link" data-action="all-people">See all <span>→</span></button></div>
+        <div class="person-row"><span class="avatar avatar-aisha">AK</span><span class="person-info"><strong>Aisha Khan</strong><small>Art &amp; Design · Year 12</small></span><button class="add-person" aria-label="Connect with Aisha Khan" data-person="Aisha Khan">＋</button></div>
+        <div class="person-row"><span class="avatar avatar-leo">LW</span><span class="person-info"><strong>Leo Williams</strong><small>Computing · Year 13</small></span><button class="add-person" aria-label="Connect with Leo Williams" data-person="Leo Williams">＋</button></div>
+        <div class="person-row"><span class="avatar avatar-priya">PS</span><span class="person-info"><strong>Priya Shah</strong><small>Biology · Year 12</small></span><button class="add-person" aria-label="Connect with Priya Shah" data-person="Priya Shah">＋</button></div>
+      </section>
+      <footer class="rail-footer"><a href="#about">About</a><a href="#guidelines">Community guidelines</a><a href="#privacy">Privacy</a><span>Made for campus life in the UK 🇬🇧</span><span>© 2026 Campus Pal</span></footer>
+    </aside>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation"><a class="mobile-nav-item active" href="#home" data-nav="home"><span>⌂</span>Home</a><a class="mobile-nav-item" href="#discover" data-nav="discover"><span>⌕</span>Discover</a><button class="mobile-create" data-action="compose" aria-label="Create a post">＋</button><a class="mobile-nav-item" href="#messages" data-nav="messages"><span>▱</span>Inbox</a><a class="mobile-nav-item" href="#profile" data-nav="profile"><span>◉</span>You</a></nav>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="compose-dialog" class="dialog-card"><form method="dialog" id="compose-form"><div class="dialog-heading"><div><span class="eyebrow">MAKE YOURSELF KNOWN</span><h2>Share a little moment</h2></div><button class="dialog-close" aria-label="Close">×</button></div><div class="dialog-author"><span class="avatar avatar-me">JM</span><div><strong>Jamie Morgan</strong><small>Northbridge College · <button type="button" class="audience-button" data-action="audience">Friends ⌄</button></small></div></div><label class="sr-only" for="post-text">What's happening?</label><textarea id="post-text" maxlength="500" placeholder="A win, a question, a dinner recommendation..." required></textarea><div class="compose-options"><span>Keep it kind, keep it you 💛</span><span id="char-count">0 / 500</span></div><div class="dialog-actions"><span>＋ Add to your post</span><button class="publish-button" type="submit">Share post</button></div></form></dialog>
+  <dialog id="story-dialog" class="dialog-card story-dialog"><form method="dialog"><button class="dialog-close story-close" aria-label="Close">×</button><div class="story-view"><span class="story-view-icon">✳</span><p id="story-copy">A little campus moment</p><small>Shared with friends · today</small></div></form></dialog>
+</body>
+</html>
