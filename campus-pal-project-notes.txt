@@ -1,0 +1,224 @@
+Campus Pal – Product and UX Expansion Notes
+
+Repository: Nyxsteria/campus-pal
+
+Overview
+- Campus Pal is currently a static front-end prototype/demo for a UK college social network.
+- The app currently includes a campus feed, stories, social cards, menu, people discovery, and accessibility-minded visual design.
+- The goal is to evolve it into a full polished campus social experience with real users, a real college selection flow, a complete frontend UX, and a realistic API/backend architecture.
+
+Current status
+- Public repo, not archived, active in a lightweight demo sense.
+- No open issues or PRs.
+- README confirms this is a prototype, not a production system.
+- User, college, authentication, messaging, real data, notifications, and friend connections are not implemented yet.
+
+Vision
+Build a polished campus-first social platform that feels like a modern, safe, and welcoming student community network, similar in spirit to a UK college social app, but with stronger privacy, accessibility, and user trust.
+
+Core user experience goals
+- Real user experience from first visit to ongoing daily campus life
+- Real college selection and onboarding
+- Full profile setup with pronouns, course, year group, and privacy settings
+- Campus social feed with relevant posts, clubs, notices, events, and recommendations
+- Real friendship and messaging flows
+- Fully accessible UI in both light and dark mode
+- Clear keyboard, screen reader, and motion support
+- Clean and modern UK-campus aesthetic
+
+Planned user flow
+1. Welcome / sign in
+2. Select college or campus
+3. Create profile
+4. Choose privacy and accessibility preferences
+5. Explore home feed
+6. View campus stories and notices
+7. Join clubs and societies
+8. Connect with classmates and friends
+9. View or send messages
+10. Check dining information
+11. Manage profile and settings
+
+Main screens
+- Onboarding / sign-in
+- College selection
+- Profile setup
+- Home feed
+- Discover
+- Messages
+- Saved posts
+- Notifications
+- College updates
+- Clubs and societies
+- Events and activities
+- Dining menu
+- People / connections
+- Settings and accessibility
+- Profile page
+
+Core experience features
+- Real user accounts and profiles
+- Real college selection with filtering by region, type, course, or campus
+- Feed with filters: For you, Friends, Clubs, Course groups, College updates
+- Story cards and campus moments
+- Post composer with audience controls, image upload, and character count
+- Reaction system with likes, comments, saves, shares
+- Friend requests and “People you may know” suggestions
+- Messaging threads, unread states, and chat UI
+- Club membership and interest-based discovery
+- Campus notices and event boards
+- Dinner menu by day and dietary requirements
+- Settings for light/dark mode, contrast, text size, reduced motion, and reading preferences
+
+Examples of data models
+User
+- id
+- name
+- email
+- username
+- college_id
+- course
+- year_group
+- pronouns
+- bio
+- profile_picture
+- privacy_preferences
+- theme_preference
+- accessibility_preferences
+
+College
+- id
+- name
+- city
+- region
+- type
+- domain
+- status
+
+Post
+- id
+- user_id
+- college_id
+- audience
+- content
+- media
+- created_at
+- tags
+- likes_count
+- comments_count
+
+Club
+- id
+- name
+- college_id
+- description
+- category
+- member_count
+
+Event
+- id
+- title
+- college_id
+- start_time
+- location
+- description
+
+MessageThread
+- id
+- participants
+- last_message_at
+
+Message
+- id
+- thread_id
+- sender_id
+- body
+- created_at
+
+DiningMenu
+- id
+- college_id
+- day
+- meal
+- items
+- dietary_tags
+
+Recommended API structure
+- GET /api/colleges
+- POST /api/auth/signup
+- POST /api/auth/login
+- GET /api/me
+- GET /api/users/search
+- GET /api/feed
+- POST /api/posts
+- POST /api/posts/:id/like
+- POST /api/posts/:id/comment
+- GET /api/clubs
+- POST /api/clubs/:id/join
+- GET /api/events
+- GET /api/dining
+- GET /api/messages
+- POST /api/messages
+- GET /api/notifications
+- PATCH /api/settings/preferences
+
+Backend architecture recommendations
+- Use a modern backend stack such as Next.js + Postgres + Prisma, or Node/NestJS + Postgres.
+- Store user, college, posts, media, clubs, events, messaging, and settings in a relational database.
+- Use an authentication service with secure session tokens or JWT-based auth.
+- Separate API layers for feed, social interactions, messaging, and notifications.
+- Add real-time layer for messages and incoming notifications.
+- Add upload service for profile photos and post media.
+- Add analytics and moderation service for abuse prevention and community safety.
+
+Accessibility and UI design standards
+- Keyboard navigation on all interactive elements
+- Visible focus states on buttons, links, inputs, and dialog controls
+- Adequate contrast across all themes
+- Respect prefers-color-scheme and user theme selection
+- Support reduced motion and prefers-reduced-transparency
+- Use semantic landmarks: header, nav, main, section, aside, footer, dialog
+- Add aria-labels for icon-only buttons and navigation actions
+- Use live regions for toast notifications and action confirmations
+- Ensure modals and dialogs have accessible titles and keyboard close behavior
+- Support screen reader descriptions for important campus updates and feed actions
+- Keep interactive targets large enough for mobile and tablet use
+
+Theme direction
+Light mode
+- Background: off-white or soft neutral
+- Surface: white or pale grey
+- Text: dark slate
+- Accent: purple / lavender
+- Borders: soft grey
+- Good readability and airy spacing
+
+Dark mode
+- Background: near-black / deep charcoal
+- Surface: darker grey
+- Text: off-white
+- Accent: purple / lilac
+- Borders: subtle cool grey
+- Preserve clarity and accessible contrast
+
+Suggested product polish items
+- Welcome first-run tutorial
+- Campus onboarding and college selector
+- Profile completion prompt
+- Smart friend suggestions based on course and year
+- Event reminders and club activity cards
+- Saved items and reading list
+- “Your campus feed” with grouped content
+- Personalised notices and relevant recommendations
+- Privacy-first messaging and data controls
+
+Current prototype notes
+The existing prototype is visually strong and includes an accessible foundation, but it is intentionally a static demo. It should be treated as the starting design language rather than the final product. The next implementation should expand its aesthetic while turning it into a real student social platform with actual back-end data and interaction flows.
+
+Next practical step
+- Reuse the existing design language and UI patterns
+- Build a realistic data-driven frontend around those screens
+- Then add the backend/API layer needed for real users, college selection, messaging, feed, clubs, and dining
+- Final step: implement strongest accessibility and theme controls for light and dark mode
+
+This file is intended to capture the current direction so the work can continue later without losing the product vision.
